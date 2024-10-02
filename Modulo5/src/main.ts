@@ -110,10 +110,14 @@ const revisarPartida = () => {
   if (puntuacionJugador === 7.5) {
     pintarMensaje ("Enhorabuena, has ganado!! 🎉🎉🎉");
     bloquearBotonDameCarta(true);
+    bloquearBotonQueHabriaPasado(true);
+    bloquearBotonMePlanto (true);
   }
   if (puntuacionJugador > 7.5) {
     pintarMensaje ("Lo sentimos, has perdido ☹️☹️☹️");
     bloquearBotonDameCarta(true);
+    bloquearBotonQueHabriaPasado(true);
+    bloquearBotonMePlanto(true);
   }
 }
 
@@ -131,6 +135,9 @@ const resetear = () => {
   mostrarPuntuacion();
   pintarCarta('https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/refs/heads/main/cartas/back.jpg');
   bloquearBotonDameCarta(false);
+  bloquearBotonQueHabriaPasado(true);
+  bloquearBotonMePlanto(false);
+  
 }
 
 const botonReset = document.getElementById("reset");
@@ -138,4 +145,51 @@ if (botonReset !== null && botonReset !== undefined && botonReset instanceof HTM
   botonReset.addEventListener("click" , () => resetear());
 }
 
+const revisarMePlanto = () => {
+  if (puntuacionJugador < 4) {
+    pintarMensaje("Has sido muy conservador");
+  }
+  if (puntuacionJugador >= 4 && puntuacionJugador <= 5.5) {
+    pintarMensaje ("Te ha entrado el canguelo eh?");
+  }
+  if (puntuacionJugador >5.5 && puntuacionJugador <=7) {
+    pintarMensaje ("Casi, casi....");
+  }
+}
 
+const plantarse = () => {
+  bloquearBotonDameCarta(true);
+  revisarMePlanto ();
+  bloquearBotonQueHabriaPasado(false);
+
+}
+
+const botonMePlanto = document.getElementById("mePlanto");
+if (botonMePlanto !== null && botonMePlanto !== undefined && botonMePlanto instanceof HTMLButtonElement) {
+  botonMePlanto.addEventListener("click" , () => plantarse());
+}
+
+const bloquearBotonMePlanto = (estaDeshabilitado : boolean) => {
+  const btnMePlanto = document.getElementById("mePlanto");
+  if (btnMePlanto !== null && btnMePlanto !== undefined && btnMePlanto instanceof HTMLButtonElement) {
+    btnMePlanto.disabled = estaDeshabilitado;
+  }
+}
+
+const bloquearBotonQueHabriaPasado = (estaDeshabilitado : boolean) => {
+  const btnQueHabriaPasado = document.getElementById("botonQueHabriaPasado");
+  if (btnQueHabriaPasado !== null && btnQueHabriaPasado !== undefined && btnQueHabriaPasado instanceof HTMLButtonElement) {
+    btnQueHabriaPasado.disabled = estaDeshabilitado;
+  }
+}
+
+const queHabriaPasado = () => {
+  dameCarta();
+}
+
+const botonQueHabriaPasado = document.getElementById("botonQueHabriaPasado");
+ if (botonQueHabriaPasado !== null && botonQueHabriaPasado !== undefined && botonQueHabriaPasado instanceof HTMLButtonElement){
+  botonQueHabriaPasado.addEventListener("click" , () => {
+    queHabriaPasado ();
+  })
+ } 
