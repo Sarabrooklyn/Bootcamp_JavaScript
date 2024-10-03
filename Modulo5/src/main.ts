@@ -108,7 +108,7 @@ const pintarMensaje = (mensaje : string) => {
 const revisarPartida = () => {
    
   if (puntuacionJugador === 7.5) {
-    pintarMensaje ("Enhorabuena, has ganado!! 🎉🎉🎉");
+    pintarMensaje ("Enhorabuena 🤩, has ganado!! 🎉🎉🎉");
     bloquearBotonDameCarta(true);
     bloquearBotonQueHabriaPasado(true);
     bloquearBotonMePlanto (true);
@@ -147,13 +147,13 @@ if (botonReset !== null && botonReset !== undefined && botonReset instanceof HTM
 
 const revisarMePlanto = () => {
   if (puntuacionJugador < 4) {
-    pintarMensaje("Has sido muy conservador");
+    pintarMensaje("Has sido muy conservador 🙄🙄🙄");
   }
   if (puntuacionJugador >= 4 && puntuacionJugador <= 5.5) {
-    pintarMensaje ("Te ha entrado el canguelo eh?");
+    pintarMensaje ("Te ha entrado el canguelo eh? 🤭");
   }
   if (puntuacionJugador >5.5 && puntuacionJugador <=7) {
-    pintarMensaje ("Casi, casi....");
+    pintarMensaje ("Uyyy casi, casi....😀");
   }
 }
 

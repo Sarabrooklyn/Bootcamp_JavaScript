@@ -65,7 +65,7 @@ h1 {
   color: #888;
 }
 
-button {
+.button {
   border-radius: 8px;
   border: 2px solid rgb(255, 0, 157);
   margin: 20px;
@@ -73,7 +73,7 @@ button {
   font-size: 15px;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: lightgreen;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -133,4 +133,9 @@ button:focus-visible {
   display: flex;
   justify-content: center;
 
+}
+
+.contenedorQHP {
+  display: flex;
+  justify-content: center;
 }
