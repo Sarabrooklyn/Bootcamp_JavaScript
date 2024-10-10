@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="/src/style.css">
+    
+  </head>
+  <body>
+    <h2>Puntuación jugador: </h2>
+    <div id="puntuacion" type = number class="casillaPuntuacion">
+    </div>
+    <div id="mensajeResultado" class="mensaje">
+    </div>
+    <div>
+      <button id="botonDameCarta" class="button">DAME CARTA</button>
+      <button id="mePlanto" class="button">ME PLANTO</button>
+      <button id="reset" class="button">RESET</button>
+    
+    <div class = "contenedorQHP">
+      <button id="botonQueHabriaPasado" class="botonQHP">¿Qué habría pasado?</button>
+    </div>       
+    </div>
+    <div id="cartaBocaAbajo" class="carta">
+      <img 
+      src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/refs/heads/main/cartas/back.jpg" 
+      alt="Carta boca abajo">
+      <img 
+      src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/refs/heads/main/cartas/back.jpg" 
+      id="cartaBocaArriba" 
+      alt="Carta de copas boca arriba">
+    </div>
+    
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+
