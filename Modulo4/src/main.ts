@@ -8,7 +8,7 @@ function pasarSiguienteTurno() {
   };
 };
 
-//mostrar el resultado 
+
 const botonSiguiente = document.getElementById("botonSiguiente");
 if(botonSiguiente !== null && botonSiguiente !== undefined && botonSiguiente instanceof HTMLButtonElement) {
     botonSiguiente.addEventListener("click" ,() => {
@@ -27,7 +27,7 @@ function volverTurnoAnterior() {
     
   };
   
-  //mostrar el resultado 
+ 
   const botonAnterior = document.getElementById("botonAnterior");
   if(botonAnterior !== null && botonAnterior !== undefined && botonAnterior instanceof HTMLButtonElement) {
       botonAnterior.addEventListener("click" ,() => {
@@ -43,7 +43,6 @@ function volverTurnoAnterior() {
     };
   };
 
-  //mostrar el resultado 
   const botonReset = document.getElementById("botonReset");
   if(botonReset !== null && botonReset !== undefined && botonReset instanceof HTMLButtonElement) {
       botonReset.addEventListener("click" ,() => {
