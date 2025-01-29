@@ -1,0 +1,147 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+#contenedorCartas {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+.cartaBocaAbajo {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid grey;
+  background-color: violet;
+  cursor: pointer;
+  cursor: grab;
+}
+
+.cartaBocaAbajo:hover {
+  border: 2px solid blue;
+}
+
+.divBotones {
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+.boton {
+  width: 200px;
+  height: 60px;
+  margin: 10px;
+  border: 2px solid blueviolet;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: transform 0.1s ease-in-out, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.boton:active {
+  transform: scale(0.90); 
+  box-shadow: 0 4px #999; 
+  border-color: blue;
+  color: blue;
+}
+
+.fuego-artificial {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: explosion 1.5s ease-out forwards;
+}
+
+/* Animación */
+@keyframes explosion {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translate(calc(var(--x-delta)), calc(var(--y-delta)));
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.fuegosArtificialesYMensaje {
+  width: 250px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.mensajes {
+  width: 210px;
+  height: 50px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: larger;
+  color: indigo;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.intentos {
+  margin: 10px;
+  padding: 10px;
+  font-size: large;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+}

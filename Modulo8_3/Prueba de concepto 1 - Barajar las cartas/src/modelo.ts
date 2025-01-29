@@ -1,0 +1,1 @@
+export type animales = "león" | "buho" | "perro" | "gallina" | "cerdo" | "abeja";
