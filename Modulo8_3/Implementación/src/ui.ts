@@ -176,27 +176,3 @@ const resetearPartida = () => {
     intentos = 0;
     mostrarMensajeNumeroIntentos(0);
 };
-
-/*const resetearPartida = () => {
-    tablero.cartas.map((carta, i) => {
-        darleLaVueltaALaCarta(i);
-        return {
-            ...carta,
-            estaVuelta : false,
-            encontrada : false,
-       }
-    });
-     tablero.indiceCartaVolteadaA = undefined;
-     tablero.indiceCartaVolteadaB = undefined;
-     tablero.estadoPartida = "PartidaNoIniciada";
-     tablero.usuarioPuedeInteractuar = true;
-   
-}
-         
-  mostrarMensaje("");
-  intentos = 0;
-  mostrarMensajeNumeroIntentos(0);
-
- }
-
-*/  

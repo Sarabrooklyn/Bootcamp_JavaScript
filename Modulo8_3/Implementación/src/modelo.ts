@@ -49,6 +49,7 @@ export interface Carta {
     encontrada: false,
   });
 
+  
 
    /* Aquí crearemos un array de cartas a partir de un array de infoCartas
        y duplicaremos las cartas para que haya dos de cada tipo.
