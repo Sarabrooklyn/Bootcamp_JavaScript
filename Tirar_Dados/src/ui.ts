@@ -1,5 +1,6 @@
 import { partida } from "./modelo";
-import { generarNumeroAleatorio, actualizarPuntuacionJugador, sumarPuntuacion, obtenerPuntosDado} from "./motor";
+import { generarNumeroAleatorio, actualizarPuntuacionJugador, 
+         sumarPuntuacion, obtenerPuntosDado} from "./motor";
 
 
 export let numeroAleatorio = generarNumeroAleatorio();
@@ -27,8 +28,6 @@ const asignarNumeroAImagen = (numeroAleatorio : number) => {
 }
 
 
-
-
 export const mostrarPuntuacion = () => {
     const divPuntuacion = document.getElementById("puntuacionObtenida");
     if (divPuntuacion && divPuntuacion instanceof HTMLDivElement){
@@ -44,18 +43,14 @@ export const mostrarMensaje = (mensaje : string) => {
     }
 }
 
-export const mensajePartidaPerdida = (numeroAleatorio : number) => {
-    if (numeroAleatorio === 6){
-        mostrarMensaje("Has sacado un 6 😱, lo sentimos, has perdido")
-        deshabilitarBotonTirarDado(true);
-        deshabilitarBotonMePlanto(true);
-    } else {
-        mostrarMensaje("");
-    }
-}
+export const mensajePartidaPerdida = () => {
+    mostrarMensaje("Has sacado un 6 😱, lo sentimos, has perdido")
+    deshabilitarBotonTirarDado(true);
+    deshabilitarBotonMePlanto(true);
+} 
 
 export const mensajePartidaGanada = (puntuacion : number) => {
-    if (puntuacion >= 50){
+    if (puntuacion >= 20){
         mostrarMensaje("Enhorabuena, has ganado la partida!!")
     }
 }
@@ -75,25 +70,35 @@ export const deshabilitarBotonMePlanto = (estaDeshabilitado : boolean) => {
 }
 
 
-export const pintarDado = (numeroAleatorio : number) => {
+export const pintarDado = (urlDado : string) => {
     const imagenDado = document.getElementById("imagenDado")
        if (imagenDado && imagenDado instanceof HTMLImageElement){
-            imagenDado.src = asignarNumeroAImagen(numeroAleatorio);
+            imagenDado.src = urlDado;
         }
     }
 
-
-
+    
 export const tirarDado = () => {
-    numeroAleatorio = generarNumeroAleatorio();
-    pintarDado(numeroAleatorio);
-    mensajePartidaPerdida(numeroAleatorio);
-    mensajePartidaGanada(partida.puntuacion);
-    const puntosDado = obtenerPuntosDado(numeroAleatorio);
+    const numeroAleatorio = generarNumeroAleatorio();
+    const urlDado = asignarNumeroAImagen(numeroAleatorio);
+    pintarDado(urlDado);
+    
+    numeroAleatorio === 6 ? detenerPartida() : continuarTirada(numeroAleatorio);
+    
+}
+
+const detenerPartida = () => {
+    mensajePartidaPerdida();
+}
+
+const continuarTirada = (numeroDado: number) => {
+    const puntosDado = obtenerPuntosDado(numeroDado);
     const puntosAcumulados = sumarPuntuacion(puntosDado);
     actualizarPuntuacionJugador(puntosAcumulados);
     mostrarPuntuacion();
+    mensajePartidaGanada(partida.puntuacion);
 }
+
 
 export const botonTirarDado = document.getElementById("botonTirarDado"); 
   if (botonTirarDado && botonTirarDado instanceof HTMLButtonElement){
@@ -119,7 +124,7 @@ export const resetear = () => {
     deshabilitarBotonTirarDado(false);
     actualizarPuntuacionJugador(0);
     mostrarPuntuacion();
-    pintarDado(0);
+    pintarDado("");
 
 }    
 
