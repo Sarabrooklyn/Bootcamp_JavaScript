@@ -74,7 +74,7 @@ const pintarPersonajeFiltrado = (personajes: Personaje[], contenedor: HTMLDivEle
     }
   };
   
-  const filtraPersonaje = async (nombre: string) => {
+  const filtraPersonaje = async (nombre: string) => { 
     try {
       const listadoPersonajes = document.querySelector("#listado-personajes");
       if (listadoPersonajes && listadoPersonajes instanceof HTMLDivElement){
@@ -86,16 +86,16 @@ const pintarPersonajeFiltrado = (personajes: Personaje[], contenedor: HTMLDivEle
     }
   };
 
-
-const botonFiltrar = document.getElementById("botonFiltrar");
-if (botonFiltrar && botonFiltrar instanceof HTMLButtonElement) {
-    botonFiltrar.addEventListener("click", () => {
-    const nombre = obtenerValorDelInput();
-        if (nombre) {
-            filtraPersonaje(nombre);
-          } else {
-            pintarPersonajes(); 
-        }
+  const formulario = document.getElementById("formulario-filtrado");
+  if (formulario && formulario instanceof HTMLFormElement) {
+    formulario.addEventListener("submit", (evento) => {
+      evento.preventDefault(); 
+      const nombre = obtenerValorDelInput();
+      if (nombre) {
+        filtraPersonaje(nombre);
+      } else {
+        pintarPersonajes();
+      }
     });
   }
 
