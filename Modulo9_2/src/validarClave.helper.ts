@@ -115,4 +115,4 @@ export const tienePalabrasComunes = (clave: string, palabrasComunes: string[]): 
     }
 };
 
-console.log(tienePalabrasComunes("alejandroMaster", commonPasswords));
+console.log(tienePalabrasComunes("aeropuerto", commonPasswords));
