@@ -1,5 +1,5 @@
 import { bancos } from "./bancos";
-import {extraerInformacionIban, ibanBienFormado, ibanValido } from "./comprobacionesIban";
+import {extraerInformacionIban, ibanValido } from "./comprobacionesIban";
 import { InformacionBancaria } from "./model";
 
 
@@ -13,11 +13,6 @@ const obtenerValorDelInput = () : string => {
     }
 };
 
-const comprobarSiEstaBienFormado = () : boolean => {
-    const iban = obtenerValorDelInput();
-    return ibanBienFormado(iban);    
-}
-
 const comprobarSiEsValido = () : boolean => {
     const iban = obtenerValorDelInput();
     return ibanValido(iban);
@@ -28,23 +23,15 @@ const pintarResultados = (): void => {
   
     if (divResultados && divResultados instanceof HTMLDivElement) {
       let mensaje = "";
-  
-      const estaBienFormado = comprobarSiEstaBienFormado();
-  
-      if (estaBienFormado) {
-        mensaje += "El IBAN está bien formado\n";
-  
-        const esValido = comprobarSiEsValido();
-  
-        if (esValido) {
-          mensaje += "El IBAN es válido \n";
-        } else {
-          mensaje += "El IBAN NO es válido \n";
-        }
-  
-      } else {
-        mensaje += "El IBAN no está bien formado\n";
-      }
+
+      const esValido = comprobarSiEsValido();
+
+       if(!esValido){
+        mensaje += "El IBAN NO es válido \n";
+       } else {
+        mensaje += "El IBAN está bien formado\n"
+        mensaje += "El IBAN es válido \n"
+       }
 
       divResultados.textContent = mensaje;
     }

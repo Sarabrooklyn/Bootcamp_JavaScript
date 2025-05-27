@@ -2,13 +2,6 @@ import * as ibantools from 'ibantools';
 import { InformacionBancaria } from './model';
 
 
-export const ibanBienFormado = (value : string) : boolean => {
-    const patron = /^[A-Z]{2}\d{2}((\s|\-)?\d{4}){2}(\s|\-)?\d{2}(\s|\-)?\d{10}$/;
-    // WW (ej:ES21) 0000 0000 00 0000000000
-    return patron.test(value);
-}
-
-
 export const ibanValido = (value : string) : boolean => {
     const ibanLimpio = value.replace(/[\s\-]/g, "");
      const iban = ibantools.isValidIBAN(ibanLimpio);
